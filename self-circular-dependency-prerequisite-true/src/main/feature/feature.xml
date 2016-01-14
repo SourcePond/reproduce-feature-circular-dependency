@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="self-circular-dependency">
+    
+    <!-- Command to add this repository to Karaf -->
+    <!-- feature:repo-add mvn:ch.sourcepond/self-circular-dependency-prerequisite-true/LATEST/xml/features -->
+    <!-- Command to install the feature provided by this repository -->
+    <!-- feature:install self-circular-dependency-prerequisite-true -->
+   
+    <feature name="self-circular-dependency-prerequisite-true" description="self-circular-dependency-prerequisite-true" version="1.0.0.SNAPSHOT">
+        <feature prerequisite="true">self-circular-dependency-prerequisite-true</feature>
+    </feature>
+</features>

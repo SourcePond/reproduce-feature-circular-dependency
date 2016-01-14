@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.sourcepond</groupId>
+	<artifactId>reproduce-feature-circular-dependency</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<karaf.version>4.0.4</karaf.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<version>${karaf.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>a-references-b</module>
+		<module>b-references-c</module>
+		<module>c-references-a</module>
+		<module>a-references-b-prerequisite-true</module>
+		<module>b-references-c-prerequisite-true</module>
+		<module>c-references-a-prerequisite-true</module>
+		<module>self-circular-dependency</module>
+		<module>self-circular-dependency-prerequisite-true</module>
+	</modules>
+</project>
